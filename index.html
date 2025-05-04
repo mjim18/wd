@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>The Legend of Zelda</title>
+  <title>Zelda Page</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,9 +12,10 @@
         <h1>The Legend of Zelda: Breath of the Wild</h1>
         <p class="subtitle">Action-adventure game developed and published by Nintendo</p>
       </div>
-      <div>
-        <input type="file" accept="image/*" onchange="loadImage(event, 'nintendo-logo')" />
-        <img id="nintendo-logo" alt="Nintendo Logo" class="nintendo-logo" />
+      <div class="nintendo-wrapper">
+        <label>Upload Nintendo Logo:</label><br>
+        <img src="placeholder-nintendo.png" alt="Nintendo Logo" class="nintendo-logo">
+        <input type="file" accept="image/*">
       </div>
     </header>
 
@@ -30,12 +31,14 @@
       <section class="main-info">
         <p>
           The Legend of Zelda: Breath of the Wild is a 2017 action-adventure game developed
-          and published by Nintendo for the Nintendo Switch and Wii U consoles...
+          and published by Nintendo for the Nintendo Switch and Wii U consoles. The game is
+          an instalment of The Legend of Zelda series..
         </p>
 
-        <div class="score" id="score-box">
-          <input type="file" accept="image/*" onchange="loadImageAsBackground(event, 'score-box')" />
-          <span>Score: 4.8/5</span>
+        <div class="score-box">
+          <label>Upload Score Button Image:</label><br>
+          <img src="placeholder-score.png" alt="Score Button" class="score-img">
+          <input type="file" accept="image/*">
         </div>
 
         <p><strong>Mode:</strong> Single-player video game</p>
@@ -46,33 +49,19 @@
       </section>
 
       <aside class="side-content">
-        <input type="file" accept="image/*" onchange="loadImage(event, 'zelda-cover')" />
-        <img id="zelda-cover" alt="Zelda Cover" class="cover-img" />
+        <div>
+          <label>Upload Zelda Poster:</label><br>
+          <img src="placeholder-zelda.jpg" alt="Zelda Poster" class="cover-img">
+          <input type="file" accept="image/*">
+        </div>
 
         <div class="rate">
-          <input type="file" accept="image/*" onchange="loadImage(event, 'thumb-icon')" />
-          <img id="thumb-icon" class="thumb-img" />
+          <label>Upload Thumbs Up Icon:</label><br>
+          <img src="placeholder-thumb.png" alt="Thumbs Up" class="thumb-img">
           <a href="#" class="rate-link">Rate it</a>
         </div>
       </aside>
     </main>
   </div>
-
-  <script>
-    function loadImage(event, targetId) {
-      const output = document.getElementById(targetId);
-      output.src = URL.createObjectURL(event.target.files[0]);
-    }
-
-    function loadImageAsBackground(event, elementId) {
-      const reader = new FileReader();
-      reader.onload = function() {
-        document.getElementById(elementId).style.backgroundImage = `url(${reader.result})`;
-        document.getElementById(elementId).style.backgroundSize = "cover";
-        document.getElementById(elementId).style.backgroundPosition = "center";
-      };
-      reader.readAsDataURL(event.target.files[0]);
-    }
-  </script>
 </body>
 </html>
